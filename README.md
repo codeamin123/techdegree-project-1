@@ -1,2 +1,2 @@
-# techdegree-project-1
- first project in treehouse
+# TechDegree Project 1
+ Unit 1 Project
