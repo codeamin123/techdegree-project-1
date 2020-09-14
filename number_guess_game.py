@@ -36,24 +36,24 @@ def start_game():
 
     random_number = random.randint(1, 10)
 
-    try:
-        player_number = int(input("Please pick a number between 1 and 10: "))
-    except ValueError:
-        print("Please enter a number!")
-
     num_try = 0
 
     while True:
         num_try += 1
-        if player_number > 10:
-            print("Please enter a number between 1 and 10!!!")
-            break
+        try:
+            player_number = int(input("Please pick a number between 1 and 10: "))
+            while player_number > 10 or player_number < 0:
+                player_number = int(input("Please pick a number between 1 and 10 only!!: "))
+                continue
+        except ValueError:
+            print("Please enter a number only! No words!!")
+            continue
         if player_number > random_number:
             print("Your guess is too high!!")
-            player_number = int(input("Please pick a number between 1 and 10: "))
+            continue
         elif player_number < random_number:
             print("Your guess is too low!!")
-            player_number = int(input("Please pick a number between 1 and 10: "))
+            continue
         elif player_number == random_number:
             if num_try == 1:
                 print("You got the right answer!!")
